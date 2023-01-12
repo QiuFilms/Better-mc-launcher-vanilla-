@@ -4,7 +4,7 @@ const path = require('path');
 const createWindow = require('./Scripts/windowCreate')
 const deafultAssetsDir = path.join(__dirname, 'Build')
 const CurseForgeApi =  require("./Scripts/curseForgeApi")
-let currentWindow
+
 
 
 const modsApi = new CurseForgeApi({
@@ -44,6 +44,6 @@ ipcMain.on("change", (e, page) => {
 
 ipcMain.handle("getFeaturedMods", async() => {
     return await modsApi.getFeaturedMods({
-        gameId: 432
+        gameId: 432,
     })
 })

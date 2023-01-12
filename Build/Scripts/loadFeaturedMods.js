@@ -1,24 +1,34 @@
-const {openInBrowser, connection} = require("../Scripts/utils")
+const {openInBrowser, connection, modLoaderType} = require("../Scripts/utils")
 
 if(connection()){
     ipcRenderer.invoke('getFeaturedMods').then((res) => {
-        createModSection(res.data.featured)
+        for (const key in res.data.featured) {
+            createModSection(res.data.popular[key], key)
+        }
     })
 }
 
 
-function createModSection(data){
+function createModSection(data, index){
+    const types = modLoaderType(data)
     const node = document.querySelector("#template > .ModMain")
     const cloneNode = node.cloneNode(true)
-    console.log(data[0].downloadCount)
+    console.log(data.downloadCount)
 
-    if(data[0].isFeatured) cloneNode.classList.add("featuredBorder")
+    if(data.isFeatured && index == 0) cloneNode.classList.add("featuredBorder")
 
+    types.forEach(type => {
+        const div = document.createElement("div")
+        div.classList.add("loaderType", type)
+        div.innerText = type
 
-    cloneNode.querySelector("img").src = data[0].logo.thumbnailUrl
-    cloneNode.querySelector("h1").innerText = data[0].name
-    cloneNode.querySelector(".description").innerText = data[0].summary
-    cloneNode.querySelector(".readMore").onclick = () => openInBrowser(data[0].links.websiteUrl)
+        cloneNode.querySelector(".details").appendChild(div)
+    })
+
+    cloneNode.querySelector("img").src = data.logo.thumbnailUrl
+    cloneNode.querySelector("h1").innerText = data.name
+    cloneNode.querySelector(".description").innerText = data.summary
+    cloneNode.querySelector(".readMore").onclick = () => openInBrowser(data.links.websiteUrl)
     
     document.querySelector(".rest").appendChild(cloneNode)
     //console.log(cloneNode);

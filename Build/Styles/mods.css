@@ -56,7 +56,8 @@
 .rest{
     margin-top: 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .featuredBorder{
@@ -70,6 +71,7 @@
     height: 240px;
     background-color: #0E0E0E;
     animation: load 0.2s forwards;
+    margin-bottom: 40px;
 }
 
 @keyframes load {
@@ -107,6 +109,31 @@
     font-family: minecraftory;
     font-size: 18px;
     font-weight: normal;
+}
+
+.details{
+    margin: 10px 0 15px 0;
+    display: flex;
+}
+
+.loaderType{
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 16px;
+    font-size: 12px;
+    color: #000000;
+    font-family: noto-sans-bold;
+}
+
+.Fabric{
+    background-color: #9341FB;
+}
+
+.Forge{
+    background-color: #FB9A41;
 }
 
 .description{
