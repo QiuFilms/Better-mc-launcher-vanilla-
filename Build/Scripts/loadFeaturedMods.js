@@ -12,6 +12,9 @@ function createModSection(data){
     const cloneNode = node.cloneNode(true)
     console.log(data[0].downloadCount)
 
+    if(data[0].isFeatured) cloneNode.classList.add("featuredBorder")
+
+
     cloneNode.querySelector("img").src = data[0].logo.thumbnailUrl
     cloneNode.querySelector("h1").innerText = data[0].name
     cloneNode.querySelector(".description").innerText = data[0].summary

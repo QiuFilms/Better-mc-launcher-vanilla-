@@ -15,13 +15,52 @@
 
 .searchSection{
     background-color: #333333;
-    background-color: green;
     width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #575757;
+}
+
+.searchBar{
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 30px;
+    background-color: #0E0E0E;
+    overflow-x: hidden;
+    border-radius: 3px;
+}
+
+.searchBar:focus-within{
+    border: 1px solid rgb(210, 210, 210);
+}
+
+.searchInput{
+    background-color: #0E0E0E;
+    font-size: 13px;
+    width: 130px;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    font-family: noto-sans;
+}
+
+::placeholder{
+    color: #717171;
 }
 
 .rest{
+    margin-top: 40px;
     display: flex;
     justify-content: center;
+}
+
+.featuredBorder{
+    box-shadow: 0 0 0 6px #333333, 0 0 0 8px  rgb(116, 22, 148);
 }
 
 .ModMain{

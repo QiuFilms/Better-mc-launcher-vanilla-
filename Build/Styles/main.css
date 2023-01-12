@@ -255,6 +255,15 @@ body{
     cursor: default;
 }
 
+.itemActive .mcIcon{
+    margin-left: 8px;
+}
+
+.itemActive .hammerIcon{
+    margin-left: -3px;
+}
+
+
 .markerActive{
     height: 0;
     border-left: 4px solid white;
