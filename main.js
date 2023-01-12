@@ -1,65 +1,35 @@
-const { app, BrowserWindow, nativeTheme, Menu, MenuItem, Notification } = require('electron');
+const { app, BrowserWindow, nativeTheme, Menu, MenuItem, Notification, ipcMain } = require('electron');
 const electron  = require('electron');
 const path = require('path');
-
+const createWindow = require('./Scripts/windowCreate')
 const deafultAssetsDir = path.join(__dirname, 'Build')
-
-function createWindow() {
-    const win = new BrowserWindow({
-        height: 635,
-        width: 1015,
-        minHeight:635,
-        minWidth: 1015,
-        autoHideMenuBar: true,
-        webPreferences: {
-            nodeIntegration: true,
-            enableRemoteModule: true
-        },
-        icon: path.join(deafultAssetsDir, 'Icons', 'Icon.png'),
-        title: 'Minecraft Launcher',
-    });
-
-    nativeTheme.themeSource = "light"
-    win.loadFile(path.join(deafultAssetsDir, 'Pages', 'main.html'));
+const CurseForgeApi =  require("./Scripts/curseForgeApi")
+let currentWindow
 
 
-    win.setThumbarButtons([
-        {
-          tooltip: 'button1',
-          icon: path.join(deafultAssetsDir, 'Icons', 'IconHammer.png'),
-          click(){ 
-            win.setThumbarButtons([])
-          }
-        }
-    ])
+const modsApi = new CurseForgeApi({
+    api_key: "$2a$10$dEIZS2ycF/BTrJT8JzCXh.B3CV9NeLjqYPfiUON1Bi49016G2xdzy"
+})
 
-    win.on("resize", ()=>{
-        console.log(win.getSize());
-    })
+
+async function test(){
+    const res = await modsApi.getVersions("1.19.2")
+
+    console.log(res);
+}
+test()
+
+async function window(page){
+    return createWindow(page)
 }
 
-if (process.platform === 'win32')
-{
+if (process.platform === 'win32'){
     app.setAppUserModelId("Minecraft Launcher");
 }
 
-
-const menu = new Menu()
-menu.append(new MenuItem({
-  label: 'Electron',
-  submenu: [{
-    role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Alt+Shift+I',
-    click: () => { console.log('Electron rocks!') }
-  }]
-}))
-
-Menu.setApplicationMenu(menu)
-
-
-
-
-app.whenReady().then(createWindow);
+app.whenReady().then(async () => {
+    currentWindow = await window("main.html") 
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
@@ -67,9 +37,13 @@ app.on('window-all-closed', () => {
     }
 });
 
-app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-    }
-});
 
+ipcMain.on("change", (e, page) => {
+    currentWindow.loadFile(path.join(deafultAssetsDir, 'Pages', page));
+})
+
+ipcMain.handle("getFeaturedMods", async() => {
+    return await modsApi.getFeaturedMods({
+        gameId: 432
+    })
+})

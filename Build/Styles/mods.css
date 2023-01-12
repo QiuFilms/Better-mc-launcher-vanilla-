@@ -1,0 +1,97 @@
+@font-face { 
+    font-family: minecraftory; 
+    src: url('../Fonts/Minercraftory.ttf'); 
+} 
+
+.titleAndButtons{
+    height: 60px;
+}
+
+.versionDisplay{
+    background-color: #1E1E1E;
+    background-color: red;
+    width: 100%;
+}
+
+.searchSection{
+    background-color: #333333;
+    background-color: green;
+    width: 100%;
+}
+
+.rest{
+    display: flex;
+    justify-content: center;
+}
+
+.ModMain{
+    display: flex;
+    flex-direction: row;
+    width: 650px;
+    height: 240px;
+    background-color: #0E0E0E;
+    animation: load 0.2s forwards;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.outerImg{
+    height: 100%;
+}
+
+.ModInfo{
+    height: 100%;
+    width: calc(100% - 240px);
+    color: white;
+}
+
+.outerImg img{
+    max-height: 100%;
+}
+
+.innerModInfo{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+}
+
+.modTitle{
+    font-family: minecraftory;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.description{
+    font-size: 14px;
+}
+
+.readMore{
+    margin-top: 20px;
+    display: block;
+    background-color: #019147;
+    font-size: 12px;
+    padding: 2px;
+    text-align: center;
+    width: 80px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.readMore:visited{
+    color: white;
+}
+
+.bottomInnerModInfo{
+    width: 100%;
+    margin-top: auto;
+}

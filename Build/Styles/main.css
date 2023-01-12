@@ -3,8 +3,43 @@
     margin: 0;
 }
 
+@font-face { 
+    font-family: noto-sans; 
+    src: url('../Fonts/NotoSans-Regular.ttf'); 
+} 
+
+@font-face { 
+    font-family: noto-sans-light; 
+    src: url('../Fonts/NotoSans-Light.ttf'); 
+}
+
+@font-face { 
+    font-family: noto-sans-extraLight; 
+    src: url('../Fonts/NotoSans-ExtraLight.ttf'); 
+}
+
+@font-face { 
+    font-family: noto-sans-bold; 
+    src: url('../Fonts/NotoSans-Bold.ttf'); 
+}
+
+:root{
+    --background: #1E1E1E
+}
+
 body{
-    background-color: #1E1E1E;
+    background-color: var(--background);
+    font-family: noto-sans;
+    animation: load 0.2s forwards;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 .content{
@@ -14,6 +49,8 @@ body{
 .left{
     width: 180px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main{
@@ -25,6 +62,63 @@ body{
     height: 80px;
     width: 100%;
     background-color: #1E1E1E;
+    display: flex;
+}
+
+.topChoose{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;   
+    height: 40px;
+    padding: 0px 14px 0px 14px;
+    color: #d1d1d1;
+    font-size: 15px;
+    font-family: noto-sans-light;
+}
+
+.topChooseActive{
+    height: 37px;
+}
+
+.topChoose p.active {
+    margin-top: auto;
+}
+
+.topChoose:hover{
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.topChooseActive:hover{
+    cursor: default;
+}
+
+.topChoose
+
+.bottomMarkerActive{
+    width: 70%;
+    height: 3px;
+    background-color: #136B3F;
+    margin-top: auto;
+    animation: bottomMarkerActiveAnimation 0.2s forwards;
+}
+
+
+@keyframes bottomMarkerActiveAnimation {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 70%;
+    }
+}
+
+
+.topChooseActive{
+    color: #FFFFFF;
+    font-family: noto-sans-bold;
 }
 
 .backgroundImage{
@@ -43,12 +137,157 @@ body{
 }
 
 .playInfo{
-    position: fixed;
+    position:sticky;
+    top:0;
     height: 55px;
     width: 100%;
     background-color: #1E1E1E;
+    box-shadow: 0px 7px 5px -2px rgba(37, 37, 37, 1);
 }
 
+.rest{
+    width: 100%;
+    height: 1000px;
+    padding-top: 40px;
+}
+
+.outerScroll{
+    overflow-y: scroll;
+    height: calc(100vh - 80px);
+}
+
+.leftTop{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.playerInfo{
+    display: flex;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+}
+
+.image{
+    margin-left: 18px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: rosybrown;
+}
+
+.innerInfo{
+    display: flex;
+    margin-left: 8px;
+}
+
+.playerName{
+    font-size: 13px;
+    font-family: noto-sans-light;
+    color: #FFFFFF;
+}
+
+.accountType{
+    font-size: 12px;
+    font-family: noto-sans-bold;
+    color: #8b8b8b;
+}
+
+.infoText{
+    display: flex;
+    flex-direction: column;
+}
+
+.leftSettings{
+    margin-top: auto;
+}
+
+.settingsIcon{
+    margin-left: 8px;
+}
+
+.iconImg{
+    max-width: 55px;
+    margin-right: 8px;
+}
+
+.mcIcon{
+    max-width: 35px;
+    margin-left: 12px;
+}
+
+
+.leftList{
+    margin-top: -5px;
+}
+
+.hammerIcon{
+    margin-left: 1px;
+}
+
+.itemMinecraft{
+    color: #f1f1f1;
+    font-size: 11px;
+}
+
+.itemDesc{
+    margin-left: 5px;
+}
+
+.modsDesc{
+    margin-left: -5px;
+}
+
+.item{
+    min-height: 60px;
+    font-size: 0.9em;
+    padding-left: 0;
+    font-family: noto-sans;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.itemActive{
+    font-family: noto-sans-bold;
+    cursor: default;
+}
+
+.markerActive{
+    height: 0;
+    border-left: 4px solid white;
+    animation: markerActiveAnimation 0.3s forwards;
+}
+
+@keyframes markerActiveAnimation {
+    0%{
+        height: 0;
+    }
+    100%{
+    height: 18px;
+
+    }
+}
+
+.hoverableItem:hover{
+    background-color: #353535;
+    cursor: pointer;
+}
+
+.item:a{
+    border-left: 5px solid white;
+    padding-left: 5px;
+}
+
+.version{
+    padding-left: 16px;
+    font-size: 0.8em;
+    color: #888;
+}
+
+  
 
 @media only screen and (min-width: 1730px){
     .backgroundImage img{
@@ -79,4 +318,22 @@ body{
     .backgroundImage img{
         width: 130%;
     }
+}
+
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #262626; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3c3c3c;
+    max-height: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #464646; 
 }

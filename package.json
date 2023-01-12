@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^21.1.1",
-    "minecraft-launcher-core": "^3.16.16"
+    "minecraft-data": "^3.17.0",
+    "minecraft-launcher-core": "^3.16.16",
+    "node-fetch": "^3.2.10"
   }
 }

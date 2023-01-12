@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/main.css">
+    <link rel="stylesheet" href="../Styles/mods.css">
     <script src="../Scripts/main.js" defer></script>
+    <script src="../Scripts/loadFeaturedMods.js" defer></script>
 </head>
 <body>
     <div class="content">
@@ -23,16 +25,16 @@
                 </div>
             </div>
             <div class="leftList">
-                <div class="listItem item itemActive">
-                    <div class="marker markerActive"></div>
+                <div class="listItem item hoverableItem" onClick="change('main.html')">
+                    <div class="marker markerInactive"></div>
                     <img src="../Icons/IconWin.png" alt="" class="iconImg mcIcon">
                     <div class="itemDesc">
                         <p class="itemMinecraft">MINECRAFT:</p>
                         <p class="itemTitle">Java Edition</p>
                     </div>
                 </div>
-                <div class="listItem item hoverableItem" onClick="change('mods.html')">
-                    <div class="marker markerInactive"></div>
+                <div class="listItem item itemActive">
+                    <div class="marker markerActive"></div>
                     <img src="../Icons/IconHammer.png" alt="" class="iconImg hammerIcon">
                     <div class="itemDesc modsDesc">
                         <p class="itemMinecraft">MINECRAFT:</p>
@@ -41,7 +43,7 @@
                 </div>
             </div>
             <div class="leftSettings item hoverableItem">
-                <div class="marker markerInActive"></div>
+                <div class="marker markerInactive"></div>
                 <img src="../Icons/Settings.png" alt="" class="iconImg settingsIcon">
                 <p>Settings</p>
             </div>
@@ -49,27 +51,38 @@
         </div>
         <div class="main">
             <div class="mainTop">
-                <div class="play topChoose topChooseActive">
-                    <p class="active">Play</p>
+                <div class="modifications topChoose topChooseActive">
+                    <p class="active">Modifications</p>
                     <div class="bottomMarkerActive"></div>
                 </div>
-                <div class="installation topChoose">
-                    <p>Installation</p>
-                    <div class="bottomMarker"></div>
-                </div>
-                <div class="skins topChoose">
-                    <p>Skins</p>
-                    <div class="bottomMarker"></div>
-                </div>
             </div>
+            <div class="searchSection">Search</div>
+
             <div class="outerScroll">
-                <div class="backgroundImage">
-                    <img src="../Images/background2.avif" alt="">
-                </div>
-                <div class="playInfo"></div>
                 <div class="rest"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="template" style="display: none;">
+        <div class="ModMain">
+            <div class="outerImg">
+                <img src="" alt="">
+            </div>
+            <div class="ModInfo">
+                <div class="innerModInfo">
+                    <h1 class="modTitle"></h1>
+                    <div class="details"></div>
+                    <p class="description"></p>
+
+                    <a class="readMore">Read more</a>
+
+                    <div class="bottomInnerModInfo"></div>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>
