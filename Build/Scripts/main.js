@@ -1,5 +1,2 @@
-const { ipcRenderer } = require("electron");
+const { change } = require("../Scripts/utils");
 
-function change(page){
-    ipcRenderer.send("change", page)
-}

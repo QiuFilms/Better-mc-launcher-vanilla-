@@ -1,5 +1,11 @@
+const { ipcRenderer } = require("electron/renderer");
+
 function openInBrowser(link){
     require("electron").shell.openExternal(link)
+}
+
+function change(page){
+    ipcRenderer.send("change", page)
 }
 
 function connection(){
@@ -34,4 +40,6 @@ function modLoaderType(data){
     return [...new Set(type)].sort()
 }
 
-module.exports = {openInBrowser, connection, modLoaderType}
+
+
+module.exports = {openInBrowser, connection, modLoaderType, change}

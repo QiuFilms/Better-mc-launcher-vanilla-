@@ -4,7 +4,8 @@ const path = require('path');
 const createWindow = require('./Scripts/windowCreate')
 const deafultAssetsDir = path.join(__dirname, 'Build')
 const CurseForgeApi =  require("./Scripts/curseForgeApi")
-
+const Database = require("./Database/DatabaseHandlers/database.js");
+const { minecraftVersions } = require('./Scripts/utils');
 
 
 const modsApi = new CurseForgeApi({
@@ -13,11 +14,9 @@ const modsApi = new CurseForgeApi({
 
 
 async function test(){
-    const res = await modsApi.getVersions("1.19.2")
-
-    console.log(res);
+    //const res = await modsApi.getVersions("1.19.2")
 }
-test()
+//test()
 
 async function window(page){
     return createWindow(page)
@@ -46,4 +45,20 @@ ipcMain.handle("getFeaturedMods", async() => {
     return await modsApi.getFeaturedMods({
         gameId: 432,
     })
+})
+
+ipcMain.handle("getMinecraftVersions", async() => {
+    return minecraftVersions()
+})
+
+ipcMain.handle("getCurseForgeVersions", async() => {
+    return await modsApi.getVersions()
+})
+
+ipcMain.handle("searchMods", async(e, arg) => {
+    arg.gameId = 432
+    arg.sortField = 2
+    arg.sortOrder = "desc"
+    console.log(arg);
+    return await modsApi.searchMods(arg)
 })

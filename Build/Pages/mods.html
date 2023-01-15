@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/main.css">
     <link rel="stylesheet" href="../Styles/mods.css">
-    <script src="../Scripts/main.js" defer></script>
-    <script src="../Scripts/loadFeaturedMods.js" defer></script>
+    <link rel="stylesheet" href="../Styles/eos/css/eos-icons.css">
+    <script src="../Scripts/modsMain.js" defer></script>
 </head>
 <body>
     <div class="content">
@@ -61,7 +61,21 @@
             <div class="outerScroll">
                 <div class="searchSection">
                     <div class="searchBar">
-                        <input type="text" class="searchInput" placeholder="Search">
+                        <i class='eos-icons searchIcon'>search</i>
+                        <input type="text" class="searchInput" placeholder="Search" spellcheck="false" onkeydown="search(event)">
+                    </div>
+                    <div class="dropdowns">
+                        <select name="" class="" id="version">
+                            <option value="">Version</option>
+                        </select>
+
+                        <select name="" class="" id="loaderType" >
+                            <option value="">Loader</option>
+                        </select>
+
+                        <select name="" class="" id="type" onchange="checkType(event)">
+                            <option value="">Type</option>
+                        </select>
                     </div>
                 </div>
                 <div class="rest"></div>
@@ -83,7 +97,16 @@
 
                     <a class="readMore">Read more</a>
 
-                    <div class="bottomInnerModInfo"></div>
+                    <div class="bottomInnerModInfo">
+                        <div class="download">
+                            <p class="downloaded">DOWNLOADED</p>
+                            <p class="downloadCount"></p>
+                        </div>
+                        <div class="installButtons">
+                            <button class="addToList">Add to list</button>
+                            <button class="install">Install</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

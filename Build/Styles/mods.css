@@ -37,6 +37,14 @@
 
 .searchBar:focus-within{
     border: 1px solid rgb(210, 210, 210);
+    margin-left: 29px;
+}
+
+.searchIcon{
+    color: #B1B1B1;
+    font-size: 20px !important;
+    font-weight: normal !important;
+    margin: 0 10px 0 8px;
 }
 
 .searchInput{
@@ -114,7 +122,9 @@
 .details{
     margin: 10px 0 15px 0;
     display: flex;
+    align-items: center;
 }
+
 
 .loaderType{
     margin-right: 10px;
@@ -134,6 +144,15 @@
 
 .Forge{
     background-color: #FB9A41;
+}
+
+.category{
+    max-height: 24px;
+    margin-right: 8px;
+}
+
+.category:first-of-type{
+    margin-left: 15px;
 }
 
 .description{
@@ -160,4 +179,62 @@
 .bottomInnerModInfo{
     width: 100%;
     margin-top: auto;
+    display: flex;
+    align-items: center;
+}
+
+.download{
+    font-size: 9px;
+    display: flex;
+    font-family: minecraftory;
+}
+
+.downloaded{
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+.downloadCount{
+    margin-left: 5px;
+    text-decoration: underline;
+    color: #FFA41C;
+}
+
+.installButtons{
+    margin-left: auto;
+}
+
+.addToList{
+    background-color: #0E0E0E;
+    border: 2px solid #019147;
+    padding: 4px 10px 4px 10px;
+    color: #FFFFFF;
+    margin-right: 5px;
+}
+
+.install{
+    background-color: #019147;
+    border: 2px solid #019147;
+    padding: 4px 12px 4px 12px;
+    color: #FFFFFF;
+}
+
+select{
+    color: #CBCBCB;
+    background-color:transparent; 
+    border:none;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+select:focus{
+    outline: none;
+}
+
+option{
+    background-color: #333333;
+}
+
+select:focus > option:checked { 
+    background: #000 !important;
 }
