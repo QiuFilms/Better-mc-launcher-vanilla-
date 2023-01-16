@@ -65,20 +65,21 @@
                         <input type="text" class="searchInput" placeholder="Search" spellcheck="false" onkeydown="search(event)">
                     </div>
                     <div class="dropdowns">
-                        <select name="" class="" id="version">
+                        <select name="" class="" id="version" onchange="updateStatus(event)">
                             <option value="">Version</option>
                         </select>
 
-                        <select name="" class="" id="loaderType" >
+                        <select name="" class="" id="loaderType" onchange="updateStatus(event)">
                             <option value="">Loader</option>
                         </select>
 
-                        <select name="" class="" id="type" onchange="checkType(event)">
+                        <select name="" class="" id="type" onchange="updateStatus(event)">
                             <option value="">Type</option>
                         </select>
                     </div>
                 </div>
-                <div class="rest"></div>
+                <div class="rest">
+                </div>
             </div>
 
         </div>
@@ -103,7 +104,7 @@
                             <p class="downloadCount"></p>
                         </div>
                         <div class="installButtons">
-                            <button class="addToList">Add to list</button>
+                            <button class="addToList">Add to favorites</button>
                             <button class="install">Install</button>
                         </div>
                     </div>
@@ -112,5 +113,41 @@
         </div>
     </div>
 
+    <div id="installWindowDivTemplate" style="display: none;">
+        <div class="installWindowDiv">
+            <div class="installWindowBackground"></div>
+            <div class="installWindow">
+                <div class="close" onclick="closePopUp()">
+                    <div class="innerClose">
+                        <i class='eos-icons'>close</i>
+                    </div>
+                </div>
+                <p class="installation">Installation</p>
+    
+                <div class="installationOption">
+                    <p class="installationModTtile"></p>
+    
+                    <div class="installationInputs instVer">
+                        Minecraft version
+                    </div>
+                    <div class="installationInputs instLoad">
+                        Minecraft loader
+                    </div>
+    
+                </div>
+    
+                <div class="outerFiles">
+                    <p>Available files:</p>
+                    <div class="files">
+                        <div class="file">
+                            <div class="fileName"></div>
+                            <div class="fileDate"></div>
+                            <button class="installButtonFiles">Install</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

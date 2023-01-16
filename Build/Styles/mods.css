@@ -146,6 +146,11 @@
     background-color: #FB9A41;
 }
 
+.NotSpecified{
+    background-color: #9f0303;
+    width: 75px;
+}
+
 .category{
     max-height: 24px;
     margin-right: 8px;
@@ -217,6 +222,12 @@
     border: 2px solid #019147;
     padding: 4px 12px 4px 12px;
     color: #FFFFFF;
+    transition: 0.2s;
+}
+
+.install:hover{
+    background-color: #007739;
+    border: 2px solid #007739;
 }
 
 select{
@@ -237,4 +248,158 @@ option{
 
 select:focus > option:checked { 
     background: #000 !important;
+}
+
+.installWindowDiv{
+    position: fixed;
+    width: calc(100vw - 180px);
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    margin-left: 6px;
+    height: calc(100vh - 80px);
+    top: 80px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    animation: load 0.2s forwards;
+}
+
+.installWindow{
+    width: 500px;
+    height: 450px;
+    background-color: #333333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.addToList, .install{
+    cursor: pointer;
+}
+
+.installation{
+    margin-top: -16px;
+    padding-bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    font-weight: noto-sans-bold;
+    border-bottom: 1px solid #575757;
+}
+
+.installationModTtile{
+    font-family: minecraftory;
+    margin: 10px 0px 20px 0px;
+}
+
+.installationOption{
+    padding: 10px 20px;
+}
+
+
+.installationInputs{
+    margin-bottom: 25px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    font-family: noto-sans-bold;
+}
+
+.installationInputs > select{
+    margin-left: auto;
+    width: 150px;
+    height: 30px;
+    background-color: #0E0E0E;
+    color: #CBCBCB;
+    text-align: center;
+}
+
+.installationInputs > select > option{
+    background-color: #0E0E0E;
+}
+
+select:focus > option:checked { 
+    background: #333333 !important;
+}
+
+.outerFiles{
+    margin-top: 1px;
+    width: 90%;
+    align-self: center;
+    height: 200px;
+    max-height: 210px;
+}
+
+.outerFiles > p{
+    padding: 5px;
+    font-family: noto-sans-bold;
+    margin-left: 5px;
+}
+
+.files{
+    background-color: #1E1E1E;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.file{
+    margin: 8px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.fileName, .fileDate{
+    color: #CBCBCB;
+    max-width: 100px;
+    margin: 0 10px 0 10px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fileName{
+    max-width: 230px;
+    min-width: 230px;
+}
+
+.fileDate{
+    margin-left: auto ;
+}
+
+.installButtonFiles{
+    margin-left: auto;
+    background-color: #019147;
+    padding: 5px 20px 5px 20px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.installButtonFiles:hover{
+    background-color: #007739;
+}
+
+.close{
+    width: 100%;
+    float: right;
+}
+
+.innerClose{
+    cursor: pointer;
+    float: right;
+    margin: 6px;
+    margin-right: 9px;
+    transition: 0.2s;
+}
+
+.innerClose:hover i{
+    color: #CBCBCB;
+}
+
+.latest{
+    box-shadow: 0 0 0 6px #1E1E1E, 0 0 0 8px  rgb(116, 22, 148);
 }

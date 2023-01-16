@@ -1,4 +1,5 @@
-const {openInBrowser, modLoaderType} = require("../Scripts/utils")
+const { openInBrowser, modLoaderType } = require("../Scripts/utils")
+const { openPopUp } = require("../Scripts/installHandler")
 
 
 function loadFeaturedMods(){
@@ -16,23 +17,37 @@ function createModSection(data, index){
     const node = document.querySelector("#template > .ModMain")
     const cloneNode = node.cloneNode(true)
 
-    if(data.isFeatured && index == 0) cloneNode.classList.add("featuredBorder")
+    if(data.isFeatured) cloneNode.classList.add("featuredBorder")
 
-    types.forEach(type => {
+    if(types.length != 0){
+        types.forEach(type => {
+            const div = document.createElement("div")
+            div.classList.add("loaderType", type)
+            div.innerText = type
+    
+            cloneNode.querySelector(".details").appendChild(div)
+        })
+    }else{
         const div = document.createElement("div")
-        div.classList.add("loaderType", type)
-        div.innerText = type
+        div.classList.add("loaderType", "NotSpecified")
+        div.innerText = "Unknown"
 
         cloneNode.querySelector(".details").appendChild(div)
-    })
+    }
+
+
+    const categoryNames =[]
 
     data.categories.forEach(category => {
-        const img = document.createElement("img")
-        img.src = category.iconUrl
-        img.classList.add("category")
-        img.title = category.name
+        if(categoryNames.indexOf(category.name) == -1){
+            const img = document.createElement("img")
+            img.src = category.iconUrl
+            img.classList.add("category")
+            img.title = category.name
 
-        cloneNode.querySelector(".details").appendChild(img)
+            cloneNode.querySelector(".details").appendChild(img)
+        }
+        categoryNames.push(category.name)
     })
 
     cloneNode.querySelector("img").src = data.logo.thumbnailUrl
@@ -40,6 +55,7 @@ function createModSection(data, index){
     cloneNode.querySelector(".description").innerText = data.summary
     cloneNode.querySelector(".readMore").onclick = () => openInBrowser(data.links.websiteUrl)
     cloneNode.querySelector(".downloadCount").innerText = MoneyFormat(data.downloadCount)
+    cloneNode.querySelector(".install").onclick = () => openPopUp(data.id, data.name, types)
 
     document.querySelector(".rest").appendChild(cloneNode)
 }

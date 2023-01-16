@@ -61,8 +61,11 @@ class Database{
         db.get(key).splice(index, 1).write()
         return db.get(key).value()
     }
+
+    async get(key){
+        const { db } = this
+        return db.get(key).value()
+    }
 }
 
-const a = new Database("list")
-const b = a.remove("content", 12).then(c => console.log(c))
 module.exports = Database

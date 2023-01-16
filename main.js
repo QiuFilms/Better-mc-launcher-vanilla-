@@ -62,3 +62,19 @@ ipcMain.handle("searchMods", async(e, arg) => {
     console.log(arg);
     return await modsApi.searchMods(arg)
 })
+
+ipcMain.handle("addToList", async(e, arg) => {
+    const List = new Database('list')
+    console.log(arg);
+})
+
+
+ipcMain.handle("getModFiles", async(e, arg) => {
+    const [modId, fileId] = arg
+    return modsApi.getModFile({
+        modId: modId, 
+        fileId:fileId
+    })
+})
+
+

@@ -1,8 +1,9 @@
 const { ipcRenderer } = require("electron");
-const { connection } = require("../Scripts/utils")
+const { connection, modLoaderType } = require("../Scripts/utils")
 const { change } = require("../Scripts/utils");
 const { loadFeaturedMods , createModSection} = require("../Scripts/loadFeaturedMods");
 const dropDownCreate = require("../Scripts/dropDownCreate");
+const { closePopUp } = require("../Scripts/installHandler")
 
 
 if(connection()){
@@ -10,11 +11,12 @@ if(connection()){
     dropDownCreate()
 }
 
-function search(e){
-    if(e.keyCode == 13){
+function search(e, o){
+    if(e.keyCode == 13 || o){
+        const modLoaderType = document.querySelector('#loaderType').value
         const data = {
-            searchFilter: e.target.value,
-            loader: document.querySelector('#loaderType').value,
+            searchFilter: document.querySelector('.searchInput').value,
+            modLoaderType: document.querySelector('#type').value != "4471" ? parseInt(modLoaderType): "",
             gameVersion: document.querySelector('#version') ? document.querySelector('#version').value: 1,
             classId: document.querySelector('#type').value
         }
@@ -32,10 +34,11 @@ function search(e){
 }
 
 
-function checkType(e){
+function updateStatus(e){
     if(e.target.value == "4471"){
         document.querySelector('#loaderType').style.display = "none"
     }else{
         document.querySelector('#loaderType').style.display = ""
     }
+    search(0, true)
 }

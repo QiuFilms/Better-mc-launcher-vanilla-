@@ -14,7 +14,7 @@ const createWindow = (page, size) => {
             enableRemoteModule: true,
             contextIsolation: false
         },
-        icon: path.join(deafultAssetsDir, 'Icons', 'Icon.png'),
+        icon: path.join(deafultAssetsDir, 'Icons', 'IconWin.png'),
         title: 'Minecraft Launcher',
     });
 
