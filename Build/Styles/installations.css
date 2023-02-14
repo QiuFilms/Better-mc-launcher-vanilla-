@@ -1,0 +1,21 @@
+.rest{
+    margin-top: 55px;
+    display: block;
+    padding: 20px;
+    width: calc(100% - 40px);
+}
+
+.newInstallation > button{
+    background-color: transparent;
+    color: #FFFFFF;
+    padding: 9px;
+    font-size: 12px;
+    font-family: noto-sans-bold;
+    border: 1px solid #7e7e7e;
+}
+
+.newInstallation{
+    padding-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid #575757;
+}

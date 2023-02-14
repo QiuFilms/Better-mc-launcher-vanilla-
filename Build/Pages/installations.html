@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/main.css">
+    <link rel="stylesheet" href="../Styles/mods.css">
+    <link rel="stylesheet" href="../Styles/installations.css">
+    <link rel="stylesheet" href="../Styles/eos/css/eos-icons.css">
     <script src="../Scripts/main.js" defer></script>
 </head>
 <body>
@@ -41,7 +44,7 @@
                 </div>
             </div>
             <div class="leftSettings item hoverableItem">
-                <div class="marker markerInActive"></div>
+                <div class="marker markerInactive"></div>
                 <img src="../Icons/Settings.png" alt="" class="iconImg settingsIcon">
                 <p>Settings</p>
             </div>
@@ -49,13 +52,13 @@
         </div>
         <div class="main">
             <div class="mainTop">
-                <div class="play topChoose topChooseActive">
-                    <p class="active">Play</p>
-                    <div class="bottomMarkerActive"></div>
-                </div>
-                <div class="installation topChoose" onClick="change('installations.html')">
-                    <p>Installation</p>
+                <div class="play topChoose" onClick="change('main.html')">
+                    <p>Play</p>
                     <div class="bottomMarker"></div>
+                </div>
+                <div class="installationCh topChoose topChooseActive">
+                    <p class="active">Installation</p>
+                    <div class="bottomMarkerActive"></div>
                 </div>
                 <div class="skins topChoose">
                     <p>Skins</p>
@@ -63,13 +66,36 @@
                 </div>
             </div>
             
+
             <div class="outerScroll">
-                <div class="backgroundImage">
-                    <img src="../Images/background2.avif" alt="">
+                <div class="searchSection">
+                    <div class="searchBar">
+                        <i class='eos-icons searchIcon'>search</i>
+                        <input type="text" class="searchInput" placeholder="Search" spellcheck="false" onkeydown="search(event)">
+                    </div>
+                    <div class="dropdowns">
+                        <select name="" class="" id="version" onchange="updateStatus(event)">
+                            <option value="">Version</option>
+                        </select>
+
+                        <select name="" class="" id="loaderType" onchange="updateStatus(event)">
+                            <option value="">Loader</option>
+                        </select>
+
+                        <select name="" class="" id="type" onchange="updateStatus(event)">
+                            <option value="">Type</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="playInfo"></div>
-                <div class="rest"></div>
+                <div class="rest">
+                    <div class="innerRest">
+                        <div class="newInstallation">
+                            <button onClick="change('newInstallation.html')">New installation</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </body>

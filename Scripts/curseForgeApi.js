@@ -60,14 +60,14 @@ class CurseForgeApi{
         })
     }
 
-    async getModFile({modId, fileId = "", params = {}}){
+    async getModFile({modId, fileId = "", parameters = {}}){
         const paramsObj = new URLSearchParams()
         for (const [key, value] of Object.entries(parameters)) {
             if(typeof value !== "undefined" || value !== ""){
                 paramsObj.append(key,value)
             }
         }
-        return fetch(`${this.baseUrl}/v1/mods/${modId}/files/${fileId}?` + paramsObj.toString(), {method: 'GET', headers: this.headers})
+        return fetch(`${this.baseUrl}/v1/mods/${modId}/files${fileId != "" ? "/"+fileId: ""}?` + paramsObj.toString(), {method: 'GET', headers: this.headers})
         .then((res) => {
             return res.json();
         })

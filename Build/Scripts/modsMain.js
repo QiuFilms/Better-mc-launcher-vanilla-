@@ -42,3 +42,9 @@ function updateStatus(e){
     }
     search(0, true)
 }
+
+function addToList(id){
+    ipcRenderer.invoke('addToList', id).then((res) => {
+        alert(res)
+    })
+}

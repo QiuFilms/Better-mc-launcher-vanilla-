@@ -1,0 +1,59 @@
+@font-face { 
+    font-family: minecraftory; 
+    src: url('../Fonts/Minercraftory.ttf'); 
+} 
+
+body{
+    background-image: url("../Images/login.jpeg");
+    background-size: auto 100vh;
+}
+
+.login-main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 300px;
+    background-color: #1e1e1e;
+    text-align: center;
+    border-radius: 8px;
+}
+
+
+.logo{
+    margin-top: -25px;
+    max-width: 400px;
+}
+
+
+.button-div{
+    position: relative;
+    width: 360px;
+    margin-top: -20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.button-text{
+    width: 300px;
+    color: #FFFFFF;
+    font-family: minecraftory;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-text-shadow{
+    color: rgb(74, 74, 74);
+    transform: translate(-50%, calc(-50% + 2px));
+}
+
+.button-div:hover img{
+    opacity: 0.75;
+}

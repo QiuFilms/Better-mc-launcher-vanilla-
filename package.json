@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^21.1.1",
+    "electron-store": "^8.1.0",
     "eos-icons": "^5.4.0",
     "lowdb": "^1.0.0",
     "minecraft-data": "^3.17.0",

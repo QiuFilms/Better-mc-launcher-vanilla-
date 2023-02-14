@@ -1,4 +1,4 @@
-const { BrowserWindow, nativeTheme } = require('electron')
+const { BrowserWindow, nativeTheme, dialog } = require('electron')
 const path = require('path');
 const deafultAssetsDir = path.join("./", 'Build')
 
@@ -26,6 +26,18 @@ const createWindow = (page, size) => {
         console.log(win.getSize());
     })
 
+    win.on("close", async (e) => {
+        // e.preventDefault()
+        // const { response } = await dialog.showMessageBox(win, {
+        //     type: 'question',
+        //     title: '  Confirm  ',
+        //     message: 'Are you sure that you want to close this window?',
+        //     buttons: ['Yes', 'No'],
+        //   })
+        
+        //   response === 0 && win.destroy()
+    })
+    
     return win
 }
 
