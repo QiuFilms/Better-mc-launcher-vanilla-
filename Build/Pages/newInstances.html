@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../Styles/eos/css/eos-icons.css">
     <link rel="stylesheet" href="../Styles/newInstallation.css">
     <script src="../Scripts/utils.js"></script>
+    <script src="../Scripts/instanceHandler.js" defer></script>
 
 </head>
 <body>
     <div class="header">
-        <h1>Create new installation</h1>
+        <h1>Create new instance</h1>
         <div class="close" onclick="change('instances.html')">
             <div class="innerClose">
                 <i class='eos-icons'>close</i>
@@ -24,17 +25,11 @@
         <div class="inputs">
             <p class="labels">NAME</p>
             <div class="searchBar">
-                <input type="text" class="searchInput" id="name" placeholder="unnamed installation" spellcheck="false" onkeydown="">
+                <input type="text" class="searchInput" id="name" placeholder="unnamed instance" spellcheck="false" onkeydown="">
             </div>
         </div>
         <div class="inputs">
-            <p class="labels">VERSION</p>
-            <div class="searchBar">
-                <input type="text" class="searchInput" id="category" placeholder="category" spellcheck="false" onkeydown="">
-            </div>
-        </div>
-        <div class="inputs">
-            <p class="labels" title="You can specify category for installation. Not required.">CATEGORY*</p>
+            <p class="labels" title="You can specify category for instance. It will be used in sorting. Not required.">CATEGORY*</p>
             <div class="searchBar">
                 <input type="text" class="searchInput" id="category" placeholder="category" spellcheck="false" onkeydown="">
             </div>
@@ -43,7 +38,7 @@
 
     <div class="bottom">
         <button class="cancel" onclick="change('instances.html')">Cancel</button>
-        <button class="create" onclick="">Create</button>
+        <button class="create" onclick="createInstance()">Create</button>
     </div>
 </body>
 </html>

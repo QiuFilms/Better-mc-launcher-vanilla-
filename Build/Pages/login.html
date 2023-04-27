@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="../Styles/main.css">
     <link rel="stylesheet" href="../Styles/eos/css/eos-icons.css">
     <link rel="stylesheet" href="../Styles/login.css">
+    <script src="../Scripts/utils.js"></script>
+    <script src="../Scripts/login.js"></script>
 </head>
 <body>
+    <img src="../Images/login.jpg" alt="" class="background">
     <div class="login-main">
         <img src="../Images/logo.png" alt="" class="logo">
-        <div class="button-div">
+        <div class="button-div" onclick="login()">
             <img src="../Images/button_big.png" alt="" class="button">
             <p class="button-text-shadow button-text">MICROSOFT LOGIN</p>
             <p class="button-text">MICROSOFT LOGIN</p>
         </div>
+        <span class="reference" onclick="openInBrowser('https://signup.live.com/signup')">Create a new Microsoft account <i class='eos-icons icon'>open_in_new</i></span>
     </div>
 </body>
 </html>

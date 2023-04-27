@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="../Styles/mods.css">
     <link rel="stylesheet" href="../Styles/installations.css">
     <link rel="stylesheet" href="../Styles/eos/css/eos-icons.css">
-    <script src="../Scripts/main.js" defer></script>
+    <link rel='stylesheet' href='../Styles/eos/css/eos-icons-outlined.css'/>
+    <script src="../Scripts/utils.js"></script>
+    <script src="../Scripts/profile.js" defer></script>
+    <script src="../Scripts/instanceHandler.js"></script>
 </head>
 <body>
     <div class="content">
         <div class="left">
             <div class="leftTop item">
                 <div class="playerInfo">
-                    <div class="image"></div>
+                    <div class="image">
+                        <img src="" alt="" class="accountAvatar">
+                    </div>
                     <div class="innerInfo">
                         <div class="infoText">
                             <p class="playerName">PlayerName</p>
@@ -42,13 +47,21 @@
                         <p class="itemTitle">Modifications</p>
                     </div>
                 </div>
+                <div class="listItem item hoverableItem" onClick="change()">
+                    <div class="marker markerInactive"></div>
+                    <img src="../Icons/Lamp.png" alt="" class="iconImg mcIcon">
+                    <div class="itemDesc">
+                        <p class="itemMinecraft">MINECRAFT:</p>
+                        <p class="itemTitle">Visual effects</p>
+                    </div>
+                </div>
             </div>
             <div class="leftSettings item hoverableItem">
                 <div class="marker markerInactive"></div>
                 <img src="../Icons/Settings.png" alt="" class="iconImg settingsIcon">
                 <p>Settings</p>
             </div>
-            <div class="version">1.0.0v1</div>
+            <div class="version2">1.0.0v1</div>
         </div>
         <div class="main">
             <div class="mainTop">
@@ -57,7 +70,7 @@
                     <div class="bottomMarker"></div>
                 </div>
                 <div class="installationCh topChoose topChooseActive">
-                    <p class="active">Installation</p>
+                    <p class="active">Instances</p>
                     <div class="bottomMarkerActive"></div>
                 </div>
                 <div class="skins topChoose">
@@ -90,7 +103,7 @@
                 <div class="rest">
                     <div class="innerRest">
                         <div class="newInstallation">
-                            <button onClick="change('newInstallation.html')">New installation</button>
+                            <button onclick="change('newInstances.html')">New instance</button>
                         </div>
                     </div>
                 </div>
@@ -98,5 +111,38 @@
 
         </div>
     </div>
+
+
+    <div class="instance" style="display: none;" id="instanceTemplate">
+        <div class="header">
+            <p class="instanceName">Instance #1</p>
+            <div class="icons">
+                <i class='eos-icons dropdownIcon advancedButton' onclick="change('newInstallation.html')">add</i>
+                <i class='eos-icons-outlined dropdownIcon advancedButton'>info</i>
+                <span class="seperator"></span>
+                <i class='eos-icons dropdownIcon'>keyboard_arrow_down</i>
+            </div>
+        </div>
+        <div class="versions">
+        </div>  
+    </div>
+
+    <div class="version" style="display: none;" id="versionTemplate" data-id="">
+        <div class="versionImage">
+            <img src="" alt="">
+        </div>
+        <div class="versionName">Minecraft 1.19</div>
+        <div class="versionType">
+            <p class="number">1.17.3</p>
+            <span class="seperator"></span>
+            <p class="type forge">Forge</p>
+        </div>
+        <i class='eos-icons settingsIcon'>settings</i>
+        <button class="playVersion" onclick="">Play</button>
+    </div>
+
+    <script>
+        document.onload = getInstances()
+    </script>
 </body>
 </html>

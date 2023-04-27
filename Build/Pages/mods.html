@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="../Styles/main.css">
     <link rel="stylesheet" href="../Styles/mods.css">
     <link rel="stylesheet" href="../Styles/eos/css/eos-icons.css">
-    <script src="../Scripts/modsMain.js" defer></script>
+    <script src="../Scripts/ModsPage/modsPage.js" defer></script>
+    <script src="../Scripts/profile.js" defer></script>
+
 </head>
 <body>
     <div class="content">
         <div class="left">
             <div class="leftTop item">
                 <div class="playerInfo">
-                    <div class="image"></div>
+                    <div class="image">
+                        <img src="" alt="" class="accountAvatar">
+                    </div>
                     <div class="innerInfo">
                         <div class="infoText">
                             <p class="playerName">PlayerName</p>
@@ -41,6 +45,14 @@
                         <p class="itemTitle">Modifications</p>
                     </div>
                 </div>
+                <div class="listItem item hoverableItem" onClick="change()">
+                    <div class="marker markerInactive"></div>
+                    <img src="../Icons/Lamp.png" alt="" class="iconImg mcIcon">
+                    <div class="itemDesc">
+                        <p class="itemMinecraft">MINECRAFT:</p>
+                        <p class="itemTitle">Visual addons</p>
+                    </div>
+                </div>
             </div>
             <div class="leftSettings item hoverableItem">
                 <div class="marker markerInactive"></div>
@@ -52,8 +64,12 @@
         <div class="main">
             <div class="mainTop">
                 <div class="modifications topChoose topChooseActive">
-                    <p class="active">Modifications</p>
+                    <p class="active">Mods</p>
                     <div class="bottomMarkerActive"></div>
+                </div>
+                <div class="modpack topChoose">
+                    <p>ModPacks</p>
+                    <div class="bottomMarker"></div>
                 </div>
             </div>
             
@@ -62,7 +78,7 @@
                 <div class="searchSection">
                     <div class="searchBar">
                         <i class='eos-icons searchIcon'>search</i>
-                        <input type="text" class="searchInput" placeholder="Search" spellcheck="false" onkeydown="search(event)">
+                        <input type="text" class="searchInput" placeholder="Search" spellcheck="false" onkeydown="searchMods(event)">
                     </div>
                     <div class="dropdowns">
                         <select name="" class="" id="version" onchange="updateStatus(event)">
@@ -71,11 +87,20 @@
 
                         <select name="" class="" id="loaderType" onchange="updateStatus(event)">
                             <option value="">Loader</option>
+                            <option value="Forge">Forge</option>
+                            <option value="Fabric">Fabric</option>
                         </select>
-
-                        <select name="" class="" id="type" onchange="updateStatus(event)">
-                            <option value="">Type</option>
-                        </select>
+                    </div>
+                    <div class="source">
+                        Source: 
+                        <div class="sourceCurseForge" id="sourceCurseForge" onclick="changeSource(this.id)">
+                            <img src="../Images/CurseForgeLogo.png" alt="" id="CurseForge" class="sourceLogo activeSource" title="CurseForge">
+                        </div>
+                        <div>
+                            <div class="sourceModrinth" id="sourceModrinth" onclick="changeSource(this.id)">
+                                <img src="../Images/ModrinthLogo.png" alt="" id="Modrinth" class="sourceLogo" title="Modrinth">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="rest">

@@ -1,0 +1,16 @@
+{
+    "instances": {
+        "Mc1.19": {
+            "category": "Vanilla",
+            "id": "#1679060019129",
+            "path": "C:\\Users\\MsiPc\\AppData\\Roaming\\.minecraftInstances\\Mc1.19",
+            "versions": []
+        },
+        "Mc1.18": {
+            "category": "Vanilla",
+            "id": "#1679060879936",
+            "path": "C:\\Users\\MsiPc\\AppData\\Roaming\\.minecraftInstances\\Mc1.18",
+            "versions": []
+        }
+    }
+}

@@ -12,7 +12,7 @@ function connection(){
     return navigator.onLine
 }
 
-function modLoaderType(data){
+function modLoaderTypeCF(data){
     let type = [];
 
     data.latestFiles.forEach(element => {
@@ -40,6 +40,19 @@ function modLoaderType(data){
     return [...new Set(type)].sort()
 }
 
+function modLoaderTypeModrinth(data){
+    const modLoaders = []
+
+    if(data.includes("fabric")){
+        modLoaders.push("fabric")
+    }
+
+    if(data.includes("forge")){
+        modLoaders.push("forge")
+    }
+
+    return modLoaders
+}
 
 
-module.exports = {openInBrowser, connection, modLoaderType, change}
+module.exports = {openInBrowser, connection, modLoaderTypeCF, modLoaderTypeModrinth, change}

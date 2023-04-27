@@ -3,9 +3,21 @@
     src: url('../Fonts/Minercraftory.ttf'); 
 } 
 
+@font-face { 
+    font-family: noto-sans-bold; 
+    src: url('../Fonts/NotoSans-Bold.ttf'); 
+}
+
 body{
-    background-image: url("../Images/login.jpeg");
-    background-size: auto 100vh;
+    overflow: hidden;
+}
+
+.background{
+    position: absolute;
+
+    height: 100vh;
+    filter: brightness(40%);
+    scale: 1.1;
 }
 
 .login-main{
@@ -28,13 +40,13 @@ body{
 
 
 .button-div{
-    position: relative;
+    margin: auto;
+    display: flex;
+    align-items: center;
     width: 360px;
-    margin-top: -20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 60px;
+    position: relative;
+    cursor: pointer;
 }
 
 
@@ -56,4 +68,29 @@ body{
 
 .button-div:hover img{
     opacity: 0.75;
+}
+
+
+.reference{
+    padding: 3px;
+    text-decoration: underline;
+    border-radius: 5px;
+    width: 50%;
+    color: #FFFFFF;
+    font-family: noto-sans-bold;
+    font-size: 14px;
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translate(-50%,0px);
+    cursor: pointer;
+}
+
+.reference > .icon{
+    margin-left: 5px;
+    font-size: 16px !important;
+}
+
+.reference:hover{
+    background-color: #626262;
 }

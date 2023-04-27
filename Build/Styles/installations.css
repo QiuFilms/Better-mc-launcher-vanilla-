@@ -11,11 +11,132 @@
     padding: 9px;
     font-size: 12px;
     font-family: noto-sans-bold;
-    border: 1px solid #7e7e7e;
+    border: 1px solid #787878;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.newInstallation > button:hover{
+    background-color: #606060;
 }
 
 .newInstallation{
     padding-bottom: 20px;
     width: 100%;
+}
+
+.instance{
+    width: 100%;
+}
+
+.header{
+    height: 45px;
+    width: 100%;
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    display: flex;
+    font-size: 16px;
+    font-family: noto-sans-bold;
+    align-items: center;
     border-bottom: 1px solid #575757;
 }
+
+.header > p{
+    margin-left: 15px;
+}
+
+
+.dropdownIcon{
+    color: #BEBEBE;
+    font-size: 28px !important;
+    font-weight: lighter !important;
+}
+
+.icons{
+    margin: 0 15px 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.icons > i{
+    cursor: pointer;
+}
+
+.advancedButton{
+    color: #FFFFFF;
+    font-size: 25px !important;
+    margin: 0px 2px;
+}
+
+.advancedButton:first-of-type{
+    margin-right: 8px;
+}
+
+.version{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    margin-left: auto;
+    font-size: 14px;
+    border-bottom: 1px solid #575757;
+    font-family: noto-sans-bold;
+}
+
+.playVersion{
+    margin-right: 15px;
+    padding: 7px 20px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #019147;
+}
+
+.playVersion:hover{
+    background-color: #007739;
+}
+
+.versionName{
+    color: #FFFFFF;
+}
+
+.versionType{
+    margin-left: auto;
+    margin-right: 50px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.versionType > .number{
+    color: #FFFFFF;
+}
+
+.versionType > .fabric{
+    color: #9341FB;
+}
+
+.versionType > .forge{
+    color: #FB9A41;
+}
+
+.seperator{
+    width: 2px;
+    height: 20px;
+    background-color: #575757;
+    margin: 0px 10px 0 10px;
+}
+
+.version .settingsIcon{
+    color: #019147;
+    font-size: 24px !important;
+    margin: 0 10px 0 0px;
+}
+
+.version2{
+    padding-left: 16px;
+    font-size: 0.8em;
+    color: #888 !important;
+}
+

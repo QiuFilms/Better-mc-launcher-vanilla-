@@ -5,17 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/main.css">
-    <script src="../Scripts/main.js" defer></script>
+    <script src="../Scripts/utils.js"></script>
+    <script src="../Scripts/profile.js" defer></script>
+
 </head>
 <body>
     <div class="content">
         <div class="left">
             <div class="leftTop item">
                 <div class="playerInfo">
-                    <div class="image"></div>
+                    <div class="image">
+                        <img src="" alt="" class="accountAvatar">
+                    </div>
                     <div class="innerInfo">
                         <div class="infoText">
-                            <p class="playerName">PlayerName</p>
+                            <p class="playerName"></p>
                             <p class="accountType">Microsoft Account</p>
                         </div>
                         <div class="infoArrow"></div>
@@ -39,6 +43,14 @@
                         <p class="itemTitle">Modifications</p>
                     </div>
                 </div>
+                <div class="listItem item hoverableItem" onClick="change()">
+                    <div class="marker markerInactive"></div>
+                    <img src="../Icons/Lamp.png" alt="" class="iconImg mcIcon">
+                    <div class="itemDesc">
+                        <p class="itemMinecraft">MINECRAFT:</p>
+                        <p class="itemTitle">Visual addons</p>
+                    </div>
+                </div>
             </div>
             <div class="leftSettings item hoverableItem">
                 <div class="marker markerInActive"></div>
@@ -53,8 +65,8 @@
                     <p class="active">Play</p>
                     <div class="bottomMarkerActive"></div>
                 </div>
-                <div class="installation topChoose" onClick="change('installations.html')">
-                    <p>Installation</p>
+                <div class="installation topChoose" onClick="change('instances.html')">
+                    <p>Instances</p>
                     <div class="bottomMarker"></div>
                 </div>
                 <div class="skins topChoose">
@@ -65,7 +77,7 @@
             
             <div class="outerScroll">
                 <div class="backgroundImage">
-                    <img src="../Images/background2.avif" alt="">
+                    <img src="../Images/background3.png" alt="">
                 </div>
                 <div class="playInfo"></div>
                 <div class="rest"></div>
