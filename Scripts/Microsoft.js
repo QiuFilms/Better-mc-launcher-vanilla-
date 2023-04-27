@@ -10,7 +10,7 @@ class Account{
         this.xProfile = null
 
         this.info = null
-
+        //store.delete('restore')
     }
 
 
@@ -28,15 +28,15 @@ class Account{
             }
 
             this.profile = result.profile
-            this.xProfile = await result.getXbox()
             this.info = result
+            this.xProfile = await result.getXbox()
 
             store.set("restore", {
                 info: result,
                 xProfile: this.xProfile
             })
 
-            return {type: "success", result: result}
+            return {type: true, result: result}
         }).catch(reason=>{
             return {type: "error", reason: reason};
         })
@@ -67,6 +67,7 @@ class Account{
 
         return {status: false}
     }
+
 }
 
 module.exports = Account

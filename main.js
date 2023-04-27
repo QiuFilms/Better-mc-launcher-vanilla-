@@ -143,12 +143,14 @@ ipcMain.handle("getModFiles", async(e, arg) => {
 
 ipcMain.handle("login", async() => {
     const status = await user.login()
+
+    return status.type
 })
 
-ipcMain.handle("profile", async() => {
+ipcMain.handle("profile", () => {
     return {
         profile: user.profile, 
-        xProfile: user.xProfile
+        profilePictureURL: user.xProfile.profilePictureURL
     }
 })
 
